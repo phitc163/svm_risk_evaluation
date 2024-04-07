@@ -34,13 +34,16 @@
             font-weight: bold;
         }
 
-        input[type="text"] {
+        textarea {
             width: 100%;
             padding: 8px;
             margin: 8px 0;
             border-radius: 4px;
             border: 1px solid #ccc;
             box-sizing: border-box;
+            /* Make textarea larger and allow multiple lines */
+            height: 100px;
+            resize: vertical; /* Allow vertical resizing */
         }
 
         input[type="submit"] {
@@ -66,7 +69,8 @@
         <h1>Risk Evaluation</h1>
         <form id="inputForm">
             <label for="inputString">Enter a string:</label><br>
-            <input type="text" id="inputString" name="inputString"><br><br>
+            <!-- Use textarea instead of input -->
+            <textarea id="inputString" name="inputString"></textarea><br><br>
             <input type="submit" value="Submit">
         </form>
         <div>
@@ -87,7 +91,7 @@
                     } else if (output == "0.0") {
                         outputEl.innerText = "Unrisk";
                     } else {
-                        outputEl.innerText = 'Somethig went wrong!';
+                        outputEl.innerText = 'Something went wrong!';
                     }
                 })
                 .catch(error => {
