@@ -83,12 +83,14 @@
             event.preventDefault();
             const inputString = document.getElementById('inputString').value;
             const outputEl = document.getElementById('output');
-            fetch(`http://localhost:8000/?input=${encodeURIComponent(inputString)}`)
+            // Use the URL of your GitHub Pages as the base URL
+            const baseUrl = 'https://yourusername.github.io';
+            fetch(`${baseUrl}/?input=${encodeURIComponent(inputString)}`)
                 .then(response => response.text())
                 .then(output => {
-                    if (output == "1.0") {
+                    if (output === "1.0") {
                         outputEl.innerText = "Risk";
-                    } else if (output == "0.0") {
+                    } else if (output === "0.0") {
                         outputEl.innerText = "Unrisk";
                     } else {
                         outputEl.innerText = 'Something went wrong!';
