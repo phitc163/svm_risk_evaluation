@@ -84,7 +84,7 @@
             const inputString = document.getElementById('inputString').value;
             const outputEl = document.getElementById('output');
             // Use the URL of your GitHub Pages as the base URL
-            const baseUrl = 'https://phitc163.github.io';
+            const baseUrl = 'http://localhost:8000';
             fetch(`${baseUrl}/?input=${encodeURIComponent(inputString)}`)
                 .then(response => response.text())
                 .then(output => {
